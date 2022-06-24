@@ -21,8 +21,6 @@ body {
 h1 {
   color: #f10a73;
   font-size: 2.5rem;
-  border: 5px ridge #f10a73;
-  border-radius: 1rem;
 }
 
 h2 {
