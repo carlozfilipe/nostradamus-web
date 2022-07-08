@@ -77,3 +77,33 @@ button:hover {
   opacity: 0.9;
   margin-bottom: 10px;
 }
+
+/* For mobile phones: */
+@media only screen and (max-width: 768px) {
+  img {
+    margin-top: 30px;
+    width: 100px;
+  }
+
+  h1 {
+    color: #f10a73;
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    opacity: 0.9;
+  }
+
+  input,
+  button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+  }
+
+}
