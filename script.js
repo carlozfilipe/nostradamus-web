@@ -26,28 +26,59 @@ const answers = [
   'Siô, vai procurar o que fazer!',
 ];
 
-buttonAskQuestion.addEventListener('click', () => {
-  if (inputQuestion.value === '') {
-    alert('⚠️ Digite uma pergunta! Não deixe o campo vazio! ⚠️');
-    return;
-  }
+let addAskQuestion = () => {
+  /* Button Event Listender */
+  buttonAskQuestion.addEventListener('click', () => {
+    if (inputQuestion.value === '') {
+      alert('⚠️ Digite uma pergunta! Não deixe o campo vazio! ⚠️');
+      return;
+    }
 
-  buttonAskQuestion.setAttribute('disabled', true);
-  
-  const answer = '<div>' + inputQuestion.value + '</div>';
+    buttonAskQuestion.setAttribute('disabled', true);
 
-  if (inputQuestion.value.substr(-1) === '?') {
-    const totalAnswers = answers.length;
-    const randomNumber = Math.floor(Math.random() * totalAnswers);
-    answerElement.innerHTML = answer + answers[randomNumber];
-    inputQuestion.value = '';
-    answerElement.style.opacity = 1;
-  } else {
-    alert('Coloque a interrogação ao final da pergunta, por gentileza! 🫶');
-  }
+    const answer = '<div>' + inputQuestion.value + '</div>';
 
-  setTimeout(function () {
-    answerElement.style.opacity = 0;
-    buttonAskQuestion.removeAttribute('disabled');
-  }, 2000);
-})
+    if (inputQuestion.value.substr(-1) === '?') {
+      const totalAnswers = answers.length;
+      const randomNumber = Math.floor(Math.random() * totalAnswers);
+      answerElement.innerHTML = answer + answers[randomNumber];
+      inputQuestion.value = '';
+      answerElement.style.opacity = 1;
+    } else {
+      alert('Coloque a interrogação ao final da pergunta, por gentileza! 🫶');
+    }
+
+    setTimeout(() => {
+      answerElement.style.opacity = 0;
+      buttonAskQuestion.removeAttribute('disabled');
+    }, 2000);
+  });
+
+  /* Input Event Listender */
+  inputQuestion.addEventListener('keyup', (event) => {
+    if (event.key === 'Enter') {
+      if (inputQuestion.value === '') {
+        alert('⚠️ Digite uma pergunta! Não deixe o campo vazio! ⚠️');
+        return;
+      }
+
+      const answer = '<div>' + inputQuestion.value + '</div>';
+
+      if (inputQuestion.value.substr(-1) === '?') {
+        const totalAnswers = answers.length;
+        const randomNumber = Math.floor(Math.random() * totalAnswers);
+        answerElement.innerHTML = answer + answers[randomNumber];
+        inputQuestion.value = '';
+        answerElement.style.opacity = 1;
+      } else {
+        alert('Coloque a interrogação ao final da pergunta, por gentileza! 🫶');
+      }
+
+      setTimeout(() => {
+        answerElement.style.opacity = 0;
+      }, 2000);
+    }
+  });
+};
+
+addAskQuestion();
