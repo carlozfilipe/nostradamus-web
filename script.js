@@ -76,7 +76,7 @@ let addAskQuestion = () => {
 
       setTimeout(() => {
         answerElement.style.opacity = 0;
-      }, 2000);
+      }, 2500);
     }
   });
 };
